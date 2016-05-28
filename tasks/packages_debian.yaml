@@ -1,0 +1,16 @@
+---
+- name: Install base packages
+  apt: name={{ item }} update_cache=yes
+  with_items:
+    - git
+    - tmux
+    - screen
+    - mosh
+    - iotop
+    - htop
+    - strace
+    - python-pycurl # for ansible's apt_repository
+    - lzop
+    - vim
+    - lrzip
+    - unzip
