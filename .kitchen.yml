@@ -1,0 +1,18 @@
+---
+driver:
+  name: docker
+  use_sudo: false
+
+provisioner:
+  name: ansible_playbook
+  playbook: default.yml
+  hosts: all
+
+platforms:
+  - name: debian
+    driver_config:
+      image: debian:jesse
+
+suites:
+  - name: default
+
