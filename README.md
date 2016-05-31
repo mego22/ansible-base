@@ -20,3 +20,5 @@ bundle exec kitchen test
 NOTES
 -----
 [TDD w/Ansible](http://www.slideshare.net/MartinEtmajer/testing-ansible-roles-with-test-kitchen-serverspec-and-rspec-48185017)
+[TDD example](https://github.com/volanja/ansible-sample-tdd)
+[Test Kitchen](http://kitchen.ci/)
