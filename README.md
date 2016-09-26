@@ -1,24 +1,8 @@
 Base
 =========
 
-This is the base role for my personal projects.
+This is the base role for my personal projects. 
 
-Role Variables
---------------
+## How to use
+Clone his repo and run ansible-setup.
 
-host_name: what the instance hostname should be
-
-TDD
----
-```
-git clone ansible-base
-cd ansible-base
-bundle install --path vendor/bundle
-bundle exec kitchen test
-```
-
-NOTES
------
-[TDD w/Ansible](http://www.slideshare.net/MartinEtmajer/testing-ansible-roles-with-test-kitchen-serverspec-and-rspec-48185017)
-[TDD example](https://github.com/volanja/ansible-sample-tdd)
-[Test Kitchen](http://kitchen.ci/)
