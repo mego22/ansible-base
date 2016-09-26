@@ -1,8 +1,2 @@
 ---
-# tasks file for ansible-base
- - name: Set hostname to {{ host_name }}
-   hostname: name={{ host_name }}
-
-- include: packages_debian.yml
-  when: ansible_distribution == 'Debian'
-  tags: packages
+# add tasks to be run here
