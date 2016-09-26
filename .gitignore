@@ -1,3 +1,6 @@
-vendor
+Gemfile.lock
+.vagrant
+*.retry
+.bundle/
 .kitchen/
-.kitchen.local.yml
+vendor/
