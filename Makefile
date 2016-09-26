@@ -13,29 +13,41 @@ ifndef LINT
   $(error ansible-lint not installed: pip install ansible-lint)
 endif
 
+# find ansible-playbook
+ANSIBLEPB := $(shell which ansible-playbook)
+ifndef ANSIBLEPB
+	$(error ansible-playbook not installed: pip install ansible)
+endif
+
 help:
-        @grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 converge: ## kitchen converge
-        @$(BUNDLE) exec kitchen converge
+	@$(BUNDLE) exec kitchen converge
 
 create: ## kitchen create
-        @$(BUNDLE) exec kitchen create
+	@$(BUNDLE) exec kitchen create
+
+destroy: ## kitchen destroy
+	@$(BUNDLE) exec kitchen destroy
 
 lint: ## ansible-lint
-      @$(LINT) .
+	@$(LINT) .
 
 list: ## kitchen list
-        @$(BUNDLE) exec kitchen list
+	@$(BUNDLE) exec kitchen list
 
 login: ## kitchen login
-        @$(BUNDLE) exec kitchen login
+	@$(BUNDLE) exec kitchen login
 
 setup: ## Install needed gems for test-kitchen
-        @$(BUNDLE) install
+	@$(BUNDLE) install
+
+syntax: ## ansible-playbook syntax-check
+	@$(ANSIBLEPB) test/integration/default/default.yml --syntax-check
 
 test: ## kitchen test
-        @$(BUNDLE) exec kitchen test
+	@$(BUNDLE) exec kitchen test
 
 verify: ## kitchen verify
-        @$(BUNDLE) exec kitchen verify
+	@$(BUNDLE) exec kitchen verify
