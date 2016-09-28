@@ -25,9 +25,9 @@ TDD
 * Ansible-lint
 * make
 
+### Make commands
 The Makefile is used as a wrapper for frequently run tasks. Mostly its wrapping `bundle exec kitchen`.
 
-### Make commands
     converge  kitchen converge
     create    kitchen create
     destroy   kitchen destroy
