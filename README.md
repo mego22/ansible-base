@@ -18,14 +18,14 @@ How to use
 TDD
 ---
 ### Prerequisites
-* Ansible
-* Docker
-* Ruby
-* Bundler
-* Ansible-lint
+* [Ansible](http://docs.ansible.com/ansible/intro_installation.html)
+* [Docker](https://docs.docker.com/engine/installation/)
+* [Ruby](https://rvm.io/rvm/install)
+* [Bundler](http://bundler.io/)
+* [Ansible-lint](https://github.com/willthames/ansible-lint)
 * make
 
-### Make commands
+### The Makefile
 The Makefile is used as a wrapper for frequently run tasks. Mostly its wrapping `bundle exec kitchen`.
 
     converge  kitchen converge
