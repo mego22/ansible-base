@@ -19,6 +19,9 @@ ifndef ANSIBLEPB
 	$(error ansible-playbook not installed: pip install ansible)
 endif
 
+# project directory
+PROJECT_ROOT :=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
+
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
@@ -44,7 +47,7 @@ setup: ## Install needed gems for test-kitchen
 	@$(BUNDLE) install
 
 syntax: ## ansible-playbook syntax-check
-	@$(ANSIBLEPB) test/integration/default/default.yml --syntax-check
+	@ANSIBLE_ROLES_PATH=$(PROJECT_ROOT)/.. $(ANSIBLEPB) test/integration/default/default.yml --syntax-check
 
 test: ## kitchen test
 	@$(BUNDLE) exec kitchen test
