@@ -8,6 +8,7 @@ How to use
 
     git clone git@github.com:mego22/ansible-base.git new-role
     cd new-role/
+    perl -pi -e s,ansible-base,new-role, ./test/integration/default/default.yml
     rm -rf .git
     git init
     git add .

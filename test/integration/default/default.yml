@@ -2,4 +2,4 @@
 - name: wrapper playbook for kitchen testing
   hosts: all
   roles:
-    - kitchen-ansible
+    - ansible-base
